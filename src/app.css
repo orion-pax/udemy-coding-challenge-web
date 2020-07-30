@@ -1,0 +1,28 @@
+.svg-inline--fa {
+    margin-left: 10px;
+}
+
+body {
+    margin-top: 50px;
+}
+
+.white-link {
+    color: white;
+}
+
+.purple-card-header {
+    background-color: #842381;
+    color: white;
+}
+
+.td-success {
+    background-color: #28a745;
+    color: white;
+    font-weight: bold;
+}
+
+.td-danger {
+    background-color: #dc3545;
+    color: white;
+    font-weight: bold;
+}
