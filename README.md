@@ -1,13 +1,68 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Quiz App (UI)
+
+This is a custom web app implementation of a quiz-taking system.
+
+## Functional specifications
+
+* The app utilizes a backend API to get the the quizzes available and questions.
+* The app presents a frontend UI to answer selected quiz.
+* The quiz consists of one or more questions.
+* The quiz only has multiple-choice questions.
+* The app should tells the user how he did at the end of the quiz.
+
+This project is hosted at [Quiz App](https://orion-pax.github.io/quizapp/).
+
+## Frameworks used
+
+-**React** Framework was used with the following dependencies:<br />
+1. axios<br /> 
+2. react-router<br />
+3. react-router-dom<br />
+4. react-boootstrap<br />
+5. bootstrap<br />
+6. react-fontawesome<br />
+7. free-solid-svg-icons<br />
+8. fontawesome-svg-core
+
+## Custom components used
+
+### Loading component
+
+- Utilizes *react-bootstrap* Spinner to show the user that magic is happening in the background
+
+### Quiz component
+
+- Main view displaying a list of available quizzes a user can take. Main frame/container is a Card.
+- Utilizes the *axios* library to call the backend api for a list of quizzes to display.
+
+### Question component
+
+- Displays individual quiz questions with the associated answers  available for selection. Uses *react-bootstrap* CarouselItem.
+- Houses a list of Choice components to display the possibe answers to the question.
+
+### Choice component 
+
+- Dislays individual answers for a question as radio buttons.
+- Accepts the answers chosen by the user.
+
+### NotFound component
+
+- This is the default 404 view shown if the url requested does not exist on the app. 
+
+### AnswerSheet component
+
+- This is the main layout housing all the quiz questions and their respective answer options.
+- Utilizes the *axios* library to call the backend api for a list of questions for the selected quiz to display.
+- This view uses a Card layout housing a *Carousel* view with disabled default auto slide and navigation features. This prevents auto navigation to the next or previous question. **NB:** This enforces a no skipping and return to question policy. All quiz questions are loaded as Question components in a *CarouselItem* component. This avoids calling the backed for the next question. The navigation to the next question is offered by the Next button at the footer of the Layout. A Finish button is presented when the last questin for the quiz is reached. 
+- A *ProgressBar* component is also displayed at the top to show the quiz taking progress as the user proceeds with answering the questions.
+
 
 ## Available Scripts
-
-In the project directory, you can run:
 
 ### `npm start`
 
 Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Open [http://localhost:3000](http://localhost:3000) or [http://localhost:3000/quizapp/](http://localhost:3000/quizapp/) to view it in the browser.
 
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
@@ -33,36 +88,7 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Backend API Details
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+You can learn more about the [Quiz App Backend API](https://facebook.github.io/create-react-app/docs/getting-started).
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
