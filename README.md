@@ -8,7 +8,7 @@ This is a custom web app implementation of a quiz-taking system.
 * The app presents a frontend UI to answer selected quiz.
 * The quiz consists of one or more questions.
 * The quiz only has multiple-choice questions.
-* The app should tells the user how he did at the end of the quiz.
+* The app should tell the user how he fared at the end of the quiz.
 
 This project is hosted at [Quiz App](https://orion-pax.github.io/quizapp/).
 
@@ -53,9 +53,12 @@ This project is hosted at [Quiz App](https://orion-pax.github.io/quizapp/).
 
 - This is the main layout housing all the quiz questions and their respective answer options.
 - Utilizes the *axios* library to call the backend api for a list of questions for the selected quiz to display.
-- This view uses a Card layout housing a *Carousel* view with disabled default auto slide and navigation features. This prevents auto navigation to the next or previous question. **NB:** This enforces a no skipping and return to question policy. All quiz questions are loaded as Question components in a *CarouselItem* component. This avoids calling the backed for the next question. The navigation to the next question is offered by the Next button at the footer of the Layout. A Finish button is presented when the last questin for the quiz is reached. 
+- This view uses a Card layout housing a *Carousel* view with disabled default auto slide and navigation features. This prevents auto navigation to the next or previous question. **NB:** This enforces a no skipping and return to question policy. All quiz questions are loaded as Question components in a *CarouselItem* component. This avoids calling the backed for the next question. The navigation to the next question is offered by the Next button at the footer of the Layout. A Finish button is presented when the last question for the quiz is reached. 
 - A *ProgressBar* component is also displayed at the top to show the quiz taking progress as the user proceeds with answering the questions.
 
+### Results component
+
+- This is the view showing the results after marking the quiz answersheet to show the user how they perfomed. 
 
 ## Available Scripts
 
@@ -90,5 +93,5 @@ If you aren’t satisfied with the build tool and configuration choices, you can
 
 ## Backend API Details
 
-You can learn more about the [Quiz App Backend API](https://facebook.github.io/create-react-app/docs/getting-started).
+You can learn more about the [Quiz App Backend API](https://github.com/orion-pax/udemy-coding-challenge-api).
 
