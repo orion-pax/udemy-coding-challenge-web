@@ -5,11 +5,13 @@ import { Card } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import LoadingComponent from '../common/loading.component'
+import config from '../config/app.config'
 
 const axiosInstance = axios.create({
-    baseURL: 'https://<api-url>/',
-    timeout: 20000
+    baseURL: config.baseUrl,
+    timeout: config.axiosTimeOut
 });
+
 
 export default class QuizComponent extends React.Component {
     constructor(props) {
