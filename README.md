@@ -83,7 +83,7 @@ Alternatively check out the screencast of how it works [here](https://drive.goog
 ### `npm start`
 
 Runs the app in the development mode.<br />
-First configure the backend api url in  the **app.config.js** under config directory before running th app
+First configure the backend api url in  the **app.config.js** under config directory before running the app
 ```javascript
 module.exports ={
     baseUrl : 'https://<api_url>/',
