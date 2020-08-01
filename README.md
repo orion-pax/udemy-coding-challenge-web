@@ -10,7 +10,14 @@ This is a custom web app implementation of a quiz-taking system.
 * The quiz only has multiple-choice questions.
 * The app should tell the user how he fared at the end of the quiz.
 
-This project is hosted at [Quiz App](https://orion-pax.github.io/quizapp/).
+This app is hosted at [Quiz App](https://orion-pax.github.io/quizapp/).
+
+Alternatively check out the screencast of how it works [here](https://drive.google.com/file/d/1ex-kDDXoj0HSnZNkrhfXBieejncHE83C/view?usp=sharing).
+
+## Process Flow
+
+![process flow](https://drive.google.com/uc?export=view&id=1iKUk1nC0Myq4xCTEBBEDynvcxDPvMgeF)
+
 
 ## Frameworks used
 
@@ -30,19 +37,24 @@ This project is hosted at [Quiz App](https://orion-pax.github.io/quizapp/).
 
 - Utilizes *react-bootstrap* Spinner to show the user that magic is happening in the background
 
+![loading component design](https://drive.google.com/uc?export=view&id=1aMmmIigT0AdtGHVRhM4pKB1HHNgr7lDc)
+
 ### Quiz component
 
 - Main view displaying a list of available quizzes a user can take. Main frame/container is a Card.
 - Utilizes the *axios* library to call the backend api for a list of quizzes to display.
 
+![quiz component design](https://drive.google.com/uc?export=view&id=1-Xgq5tiH7mbMm-8ri3j7zfRqlHHuMlMM)
+
+
 ### Question component
 
 - Displays individual quiz questions with the associated answers  available for selection. Uses *react-bootstrap* CarouselItem.
-- Houses a list of Choice components to display the possibe answers to the question.
+- Houses a list of Choice components to display the possible answers to the question.
 
 ### Choice component 
 
-- Dislays individual answers for a question as radio buttons.
+- Displays individual answers for a question as radio buttons.
 - Accepts the answers chosen by the user.
 
 ### NotFound component
@@ -56,19 +68,29 @@ This project is hosted at [Quiz App](https://orion-pax.github.io/quizapp/).
 - This view uses a Card layout housing a *Carousel* view with disabled default auto slide and navigation features. This prevents auto navigation to the next or previous question. **NB:** This enforces a no skipping and return to question policy. All quiz questions are loaded as Question components in a *CarouselItem* component. This avoids calling the backed for the next question. The navigation to the next question is offered by the Next button at the footer of the Layout. A Finish button is presented when the last question for the quiz is reached. 
 - A *ProgressBar* component is also displayed at the top to show the quiz taking progress as the user proceeds with answering the questions.
 
+![answer sheet component design](https://drive.google.com/uc?export=view&id=1TDB2e6hAS5cPTLnHBi9MGdnr_sh07qLE)
+
+![answer sheet component finish button](https://drive.google.com/uc?export=view&id=1YvGpaqLlXXTNygJCBIPzFIvzIKd_nRky)
+
 ### Results component
 
 - This is the view showing the results after marking the quiz answersheet to show the user how they perfomed. 
+![resuls component](https://drive.google.com/uc?export=view&id=1toOQTJ5s9R8cgkvXq-m4b4P3j_x-_3yw)
+
 
 ## Available Scripts
 
 ### `npm start`
 
 Runs the app in the development mode.<br />
+First configure the backend api url in  the **app.config.js** under config directory before running th app
+```javascript
+module.exports ={
+    baseUrl : 'https://<api_url>/',
+    axiosTimeOut: 20000
+}
+```
 Open [http://localhost:3000](http://localhost:3000) or [http://localhost:3000/quizapp/](http://localhost:3000/quizapp/) to view it in the browser.
-
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
 
 ### `npm test`
 
@@ -95,3 +117,19 @@ If you aren’t satisfied with the build tool and configuration choices, you can
 
 You can learn more about the [Quiz App Backend API](https://github.com/orion-pax/udemy-coding-challenge-api).
 
+## Trade-offs
+
+- The app stores the answers to questions in an array instead of repeatedly calling the backend api to persist the user's responses.
+- The app stores all the questions in memory as app's state to avoid calling the api and only does so when the quiz has been completed
+- This results in less load for the api to handle so as not to exhaust the free Heroku resources for the production demo.
+
+## Additional Functionality
+
+- Given additional time is spent on this app, the following functionality can be added:
+
+1. User should be able to sign up and sign in to take a quiz
+2. Users should be able to view all the results for the quizzes they took
+3. Based on the how the quiz is configured, the user can be prohibited/allowed to skip questions or return to previous ones
+4. Introduce a timed quiz and a timer component for the user to work with
+5. Allow revision for the quiz after the results have been shown
+6. Provide an overal view for user to see answered and skipped questions before submitting the quiz for marking
